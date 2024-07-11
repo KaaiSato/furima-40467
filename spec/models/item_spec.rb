@@ -30,27 +30,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Info can't be blank")
       end
       it 'categoryが空では出品できない' do
-        @item.category = nil
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it 'sales_statusが空では出品できない' do
-        @item.sales_status = nil
+        @item.sales_status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Sales status can't be blank")
       end
       it 'shipping_feeが空では出品できない' do
-        @item.shipping_fee = nil
+        @item.shipping_fee_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping fee can't be blank")
       end
       it 'prefectureが空では出品できない' do
-        @item.prefecture = nil
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it 'schesuled_deliveryが空では出品できない' do
-        @item.scheduled_delivery = nil
+        @item.scheduled_delivery_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Scheduled delivery can't be blank")
       end

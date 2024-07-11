@@ -19,5 +19,4 @@ class Item < ApplicationRecord
   validates :price, presence: true
   validates :price, numericality: { only_integer: true, message: '半角数字を使用して下さい' }
   validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: '販売可能価格外です' }
-  validates :user_id, presence: true
 end
