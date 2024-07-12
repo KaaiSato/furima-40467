@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :user do
     nickname { Faker::Name.name }
     email { Faker::Internet.email }
-    password { "1a" + Faker::Internet.password(min_length: 6) }
+    password { '1a' + Faker::Internet.password(min_length: 6) }
     password_confirmation { password }
     last_name { Gimei.name.last.kanji } # Gimei gem to generate Japanese names
     first_name { Gimei.name.first.kanji } # Gimei gem to generate Japanese names
