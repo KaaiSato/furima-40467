@@ -38,21 +38,21 @@ class ItemsController < ApplicationController
     @item.destroy
     redirect_to root_path
   end
-end
 
   private
 
-def item_params
-  params.require(:item).permit(:image, :name, :info, :category_id, :sales_status_id, :shipping_fee_id, :prefecture_id,
-                               :scheduled_delivery_id, :price).merge(user_id: current_user.id)
-end
+  def item_params
+    params.require(:item).permit(:image, :name, :info, :category_id, :sales_status_id, :shipping_fee_id, :prefecture_id,
+                                 :scheduled_delivery_id, :price).merge(user_id: current_user.id)
+  end
 
-def set_item
-  @item = Item.find(params[:id])
-end
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
-def move_to_index
-  return if current_user == @item.user
+  def move_to_index
+    return unless current_user != @item.user || Order.exists?(item_id: @item.id)
 
-  redirect_to root_path
+    redirect_to root_path
+  end
 end
